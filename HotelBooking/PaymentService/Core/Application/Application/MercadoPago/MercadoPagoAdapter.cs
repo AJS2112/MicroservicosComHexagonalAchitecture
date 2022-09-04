@@ -1,4 +1,5 @@
-﻿using Application.MercadoPago.Exceptions;
+﻿using Application.Booking.Dtos;
+using Application.MercadoPago.Exceptions;
 using Application.Payment.Dtos;
 using Application.Payment.Ports;
 using System;
@@ -11,6 +12,11 @@ namespace Payments.Application.MercadoPago
 {
     public class MercadoPagoAdapter : IPaymentProcessor
     {
+        public Task<string> CapturePayment(PaymentRequestDTO paymentRequestDTO)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<PaymentStateDTO> PayWithCreditCard(string paymentIntention)
         {
             if (string.IsNullOrEmpty(paymentIntention))

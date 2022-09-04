@@ -1,6 +1,7 @@
 ﻿using Application.Booking.Dtos;
 using Application.Booking.Ports;
 using Application.Booking.Responses;
+using Application.Payment.Ports;
 using Domain.Ports;
 using System;
 using System.Collections.Generic;
@@ -72,6 +73,8 @@ namespace Application.Booking
             var paymentProcessor = _paymentProcessorFactory.GetPaymentProcessor(paymentRequestDTO.PaymentProvider);
 
             var response = await paymentProcessor.CapturePayment(paymentRequestDTO);
+
+            return response.ToString();
         }
 
         Task<BookingDTO> IBookingManager.CreateBooking(BookingDTO bookingDto)
